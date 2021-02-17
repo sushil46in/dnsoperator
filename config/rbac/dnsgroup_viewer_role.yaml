@@ -1,0 +1,20 @@
+# permissions for end users to view dnsgroups.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dnsgroup-viewer-role
+rules:
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups/status
+  verbs:
+  - get

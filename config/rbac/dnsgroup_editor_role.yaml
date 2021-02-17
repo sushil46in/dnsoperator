@@ -1,0 +1,24 @@
+# permissions for end users to edit dnsgroups.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dnsgroup-editor-role
+rules:
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups/status
+  verbs:
+  - get

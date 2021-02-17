@@ -1,0 +1,15 @@
+domain: nmbsdns.io
+layout: go.kubebuilder.io/v3
+projectName: dnsoperator
+repo: dnsoperator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: nmbsdns.io
+  group: infobox
+  kind: Dnsgroup
+  path: dnsoperator/api/v1alpha1
+  version: v1alpha1
+version: "3"
