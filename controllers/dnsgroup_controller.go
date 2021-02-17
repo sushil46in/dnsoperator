@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -48,7 +49,12 @@ type DnsgroupReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.7.0/pkg/reconcile
 func (r *DnsgroupReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = r.Log.WithValues("dnsgroup", req.NamespacedName)
+	log := r.Log.WithValues("dnsgroup", req.NamespacedName)
+
+	vg := &infoboxv1alpha1.Dnsgroup{}
+
+	msg := fmt.Sprintf("received reconcile request for %q (namespace: %q)", vg.GetName(), vg.GetNamespace())
+	log.Info(msg)
 
 	// your logic here
 

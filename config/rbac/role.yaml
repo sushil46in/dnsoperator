@@ -1,0 +1,34 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - infobox.nmbsdns.io
+  resources:
+  - dnsgroups/status
+  verbs:
+  - get
+  - patch
+  - update
